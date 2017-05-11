@@ -1,22 +1,22 @@
-class ngnix::serverinfo {
+class nginx::serverinfo {
 
        $serverinfodata = [
               {
-                metric => $::puppetversion
-                description => Shows puppet Version
+                metric => $::puppetversion,
+                description => "Shows puppet Version"
               },
               {
-                metric => $::rubyplatform
+                metric => $::rubyplatform,
                 description => "Ruby Version"
               },
              {
-                metric => $::kernalmajversion
+                metric => $::kernalmajversion,
                 description => "Kernal Version"
               },
               {
-                metric => $::kernalrelease
+                metric => $::kernalrelease,
                 description => "Kernal Release"
               }
 
-
-
+]
+}

@@ -1,6 +1,7 @@
-class ngnix::etchosts($servername) {
+class nginx::etchosts($servername) {
+
 
    file { "/etc/hosts" :
-         content => template("ngnix/hosts,erb"),
+         content => template("nginx/hosts.erb"),
       }
 }

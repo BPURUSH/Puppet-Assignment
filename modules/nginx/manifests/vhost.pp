@@ -9,6 +9,7 @@ class nginx::vhost($domain='UNSET',$root='UNSET') {
           group   => 'ubuntu',
           ensure  => 'directory',
           mode    => '777',
+}
   define createwebsite($domain='UNSET',$root='UNSET') {
   
          include nginx  
@@ -52,7 +53,7 @@ class nginx::vhost($domain='UNSET',$root='UNSET') {
   }
  
  define addStaticFiles( $default_parent_root , $vhost_root , $vhost_domain ) {
-  include ngnix::serverinfo 
+  include nginx::serverinfo 
  
   $dir_tree = [ "$vhost_root" ]
   
@@ -68,10 +69,10 @@ class nginx::vhost($domain='UNSET',$root='UNSET') {
             group   => 'ubuntu',
             source => "puppet:///modules/nginx/${vhost_domain}/index-html", # index.html was dropped under nginx/files/
             mode    => '755',
-  }->
+  
 
-       file { [ "vhost_root/serverinformation.html" ] :
-        content => template("nginx/serverinfo.erb"),
+       #file { [ "vhost_root/serverinformation.html" ] :
+       # content => template("nginx/serverinfo.erb"),
 }
  }
-} 
+}
